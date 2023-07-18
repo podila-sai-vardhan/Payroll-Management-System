@@ -1,0 +1,5 @@
+{
+    "files.exclude": {
+        "Welcome to My Flask Application": true
+    }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Signup</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<style>
+body {
+  background-color: #1779dc;
+  color: #cd2727;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #2091b4;
+  border-radius: 5px;
+}
+
+.section h2 {
+  margin-bottom: 10px;
+  color: #0ea05c;
+  font-size: 1.5em;
+}
+
+.section a {
+  color: #45cd0a;
+  text-decoration: none;
+}
+
+.section a:hover {
+  color: #2ab81a;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="section">
+    <h2>Employee Signup</h2>
+    <form action="/employee-signup" method="POST">
+      <div class="form-group">
+        <label for="eid">Employee ID</label>
+        <input type="text" class="form-control" name="eid" id="eid" placeholder="Enter Employee ID">
+      </div>
+      <div class="form-group">
+        <label for="ename">Employee Name</label>
+        <input type="text" class="form-control" name="ename" id="ename" placeholder="Enter Employee Name">
+      </div>
+      <div class="form-group">
+        <label for="dptid">Department ID</label>
+        <input type="text" class="form-control" name="dptid" id="dptid" placeholder="Enter Department ID">
+      </div>
+      <div class="form-group">
+        <label for="designation">Designation</label>
+        <input type="text" class="form-control" name="designation" id="designation" placeholder="Enter Designation">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+      </div>
+      <div class="form-group">
+        <label for="contact_no">Contact Number</label>
+        <input type="text" class="form-control" name="contact_no" id="contact_no" placeholder="Enter Contact Number">
+      </div>
+      <div class="form-group">
+        <label for="add_y">Address</label>
+        <input type="text" class="form-control" name="add_y" id="add_y" placeholder="Enter Address">
+      </div>
+      <button type="submit" class="btn btn-primary">Signup</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>
