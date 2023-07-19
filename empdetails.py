@@ -40,4 +40,30 @@ class Employee:
                     ''')
         conn.commit()
 
+    def salaryinsert(self,**k):
+        conn=sqlite3.connect('PMS.DB')
+        cur = conn.cursor()
+        cur.execute(f'''insert into salary_details values({k['eid']},{k['dptid']},
+                    {k['account_number']},"{k['pan']}",{k['base_salary']})
+                    ''')
+        conn.commit()
+
+
+class salarycalculator:
+
+    def salarycalculation(self,eid):
+        Conn=sqlite3.connect('PMS.DB')
+        cur=Conn.cursor()
+        cur.execute(f"select base_salary from salary_details where EID={eid}")
+        base_salary=cur.fetchall()[0][0]
+        cur.execute(f"select date,time_in,time_out from attendance where EID={eid}")
+        gt= cur.fetchall()
+        print(base_salary)
+        print(gt)
+        hrs=base_salary/(22*8)
+        su=0
+        for i in gt:
+            g=(int(i[2][:2])-int(i[1][:2]))*hrs
+            su=su*g
+        return su
 

@@ -2,12 +2,18 @@
 <html>
 <head>
 <title>Flask Application Index Page</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 <style>
 body {
-  background-color: hsla(120, 89%, 46%, 0.904);
-  color: hwb(0 2% 4% / 0.811) 80% / 0
-
+  background-color: #15d19598;
+  color: #d82e2e;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .container {
@@ -18,23 +24,37 @@ body {
 .section {
   margin-top: 20px;
   padding: 20px;
-  background-color: hsl(281, 75%, 36%);
+  background-color: #333;
   border-radius: 5px;
+  animation: fadeInUp 1s;
 }
 
 .section h2 {
   margin-bottom: 10px;
-  color: hsl(77, 87%, 43%);
+  color: #fff;
   font-size: 1.5em;
 }
 
 .section a {
-  color: hsl(326, 78%, 43%);
+  color: #ffcc00;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 .section a:hover {
-  color: hsl(70, 82%, 42%);
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
 }
 
 @media (max-width: 768px) {
@@ -43,59 +63,50 @@ body {
   }
 }
 
-/* Animated CSS */
-
-.section.animated {
-    -webkit-animation: fadeIn 0.35s ease-in, move 0.35s ease-in;
-  -moz-animation: fadeIn 0.35s ease-in, move 0.35s ease-in;
-  -o-animation: fadeIn 0.35s ease-in, move 0.35s ease-in;
-  animation: fadeIn 0.35s ease-in, move 0.35s ease-in;
-
-  @keyframes move {
-    0% {
-      top: 0;
-    }
-    100% {
-      top: 100px;
-    }
-  }
-}
-
-@keyframes fadeIn {
+@keyframes fadeInUp {
   from {
     opacity: 0;
+    transform: translateY(20px);
   }
-
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="section animated">
+  <div class="logo animate__animated animate__fadeInDown">
+    <img src="https://example.com/logo.png" alt="Logo">
+  </div>
+  <div class="section animate__animated animate__fadeInUp">
     <h2>Employee Signup</h2>
     <a href="/employee-signup">Click here to signup for an employee account</a>
   </div>
-  <div class="section animated">
+  <div class="section animate__animated animate__fadeInUp">
     <h2>Attendance</h2>
     <a href="/attendance">Click here to view your attendance record</a>
   </div>
-  <div class="section animated">
+  <div class="section animate__animated animate__fadeInUp">
     <h2>Payroll Release</h2>
     <a href="/payroll-release">Click here to view your payroll information</a>
   </div>
-  <div class="section animated">
+  <div class="section animate__animated animate__fadeInUp">
     <h2>Show Employees</h2>
     <a href="/show-employees">Click here to view a list of all employees</a>
   </div>
+  <div class="section animate__animated animate__fadeInUp">
+    <h2>Salary</h2>
+    <a href="/salary">Click here to view your salary information</a>
+  </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 <script>
 $(document).ready(function() {
-  // Add some animated CSS to the sections
-  $(".section").addClass("animated fadeIn");
+  // Add Wow.js library to enable enhanced animations
+  new WOW().init();
 });
 </script>
 </body>

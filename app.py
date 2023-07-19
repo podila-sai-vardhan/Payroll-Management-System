@@ -50,6 +50,29 @@ def attendance():
     
     return render_template('attendance.html')
 
+@app.route('/salary',methods=['GET','POST'])
+def salary():
+    if request.method=='POST':
+        eid = request.form.get('eid')
+        dptid = request.form.get('dptid')
+        account_number = request.form.get('account_number')
+        pan = request.form.get('pan')
+        base_salary = request.form.get('base_salary')
+        print(eid,dptid,account_number)
+        emp= Employee()
+        emp.salaryinsert(eid=eid,dptid=dptid,account_number=account_number,pan=pan,base_salary=base_salary)
+        return render_template('message.html')
+    
+    return render_template('salary.html')
+
+@app.route('/payroll-release',Methods=['GET','POST'])
+def payrollrelease():
+    if request.method=='POST':
+        eid = sala()
+        sc=sal
+        total_salary=sc.sa(eid )
+        context={'employeeid':eid}
+
 
 
 if __name__=='__main__':

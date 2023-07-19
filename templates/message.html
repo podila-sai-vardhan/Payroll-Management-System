@@ -1,72 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Message</title>
-  <style>
-    body {
-      background-color: #1a202c;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+<title>Message</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
-    .message {
-      text-align: center;
-    }
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Orbitron', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-    h1 {
-      font-size: 36px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
+.message {
+  text-align: center;
+}
 
-    .success-icon {
-      font-size: 60px;
-      color: #2ecc71;
-      animation: rotate 2s infinite;
-    }
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  animation: pulse 2s ease-in-out infinite;
+}
 
-    p {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
+.success-icon {
+  font-size: 120px;
+  color: #2ecc71;
+  animation: spin 2s linear infinite;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 4px;
-      background-color: #3498db;
-      color: #fff;
-      transition: background-color 0.3s;
-    }
+p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
-    .btn:hover {
-      background-color: #2980b9;
-    }
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: #3498db;
+  color: #fff;
+  transition: background-color 0.3s;
+}
 
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-  </style>
+.btn:hover {
+  background-color: #2980b9;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>
 </head>
 <body>
-  <div class="message">
-    <h1><span class="success-icon">&#10004;</span> Success!</h1>
-    <p>Your message has been sent successfully.</p>
-    <a href="/" class="btn">Back to Home</a>
-  </div>
+<div class="message">
+  <h1><span class="success-icon">&#10004;</span> Success!</h1>
+  <p>Your message has been sent successfully.</p>
+  <a href="/" class="btn">Back to Home</a>
+</div>
 </body>
 </html>
