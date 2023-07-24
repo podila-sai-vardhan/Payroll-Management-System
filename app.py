@@ -79,10 +79,8 @@ def payrollrelease():
 
 
 if __name__=='__main__':
-    app.run()
+    app.run(host='0.0.0.0',port='5050')
 
 
 
-emp=Employee()
 
-emp.emp_insert(eid=1,ename='vardhan',dptid=200,designation='Data_Analyst',email='psvardhan@gmail.com',contact_no=6284395326,add_y='hyderabad')
