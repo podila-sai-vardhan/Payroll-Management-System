@@ -9,7 +9,6 @@ class Employee:
         cur.execute(f'''insert into employee_details values({k['eid']},"{k['ename']}",
                     {k['dptid']},"{k['designation']}",
                     "{k['email']}",{k['contact_no']},"{k['add_y']}")
-
                     ''')
         conn.commit()
     
@@ -35,7 +34,7 @@ class Employee:
         cur = conn.cursor()
         cur.execute(f'''insert into attendance values({k['dptid']},"{k['dptname']}",
                     {k['eid']},"{k['ename']}",
-                    "{k['date']}","{k['time_in']}","{k['time_out']}")
+                    "{k['date']}",{k['time_in']},{k['time_out']})
 
                     ''')
         conn.commit()
@@ -49,21 +48,26 @@ class Employee:
         conn.commit()
 
 
-class salarycalculator:
-
-    def salarycalculation(self,eid):
-        Conn=sqlite3.connect('PMS.DB')
-        cur=Conn.cursor()
-        cur.execute(f"select base_salary from salary_details where EID={eid}")
-        base_salary=cur.fetchall()[0][0]
-        cur.execute(f"select date,time_in,time_out from attendance where EID={eid}")
-        gt= cur.fetchall()
+class salaryCalculator:
+    def salary_calculation(self, eid):
+        conn = sqlite3.connect('PMS.DB')
+        cur = conn.cursor()
+        cur.execute(f"SELECT base_salary FROM salary_details WHERE eid={eid}")
+        base_salary = cur.fetchall()[0][0]
+        cur.execute(f"SELECT date, time_in, time_out FROM attendance WHERE eid={eid}")
+        attendance_records = cur.fetchall()
         print(base_salary)
-        print(gt)
-        hrs=base_salary/(22*8)
-        su=0
-        for i in gt:
-            g=(int(i[2][:2])-int(i[1][:2]))*hrs
-            su=su*g
-        return su
+        print(attendance_records)
+        hrs = base_salary / (22 * 8)
+        total_salary = 0
+        for record in attendance_records:
+            time_in = record[1]
+            time_out = record[2]
+            if time_out == 'No':
+                continue  # Skip calculation for this record
+            hours_worked = int(time_out[:2]) - int(time_in[:2])
+            salary = hours_worked * hrs
+            total_salary += salary
+        return total_salary
+
 

@@ -1,3 +1,5 @@
-import sqlite3
+from empdetails import salarycalculator
 
- emp= 
+sc= salarycalculator
+
+sc.salarycalculation(eid=1)

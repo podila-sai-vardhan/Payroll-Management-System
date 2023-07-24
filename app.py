@@ -1,6 +1,6 @@
 from empdetails import Employee
 from flask import Flask,render_template,jsonify,request
-from empdetails import Employee
+from empdetails import Employee,salaryCalculator
 app=Flask(__name__)
 
 
@@ -65,13 +65,16 @@ def salary():
     
     return render_template('salary.html')
 
-@app.route('/payroll-release',Methods=['GET','POST'])
+@app.route('/payroll-release',methods=['GET','POST'])
 def payrollrelease():
     if request.method=='POST':
-        eid = sala()
-        sc=sal
-        total_salary=sc.sa(eid )
-        context={'employeeid':eid}
+        eid = request.form.get("empid")
+        sc = salaryCalculator()
+        total_salary= sc.salarycalculation(eid=int(eid))
+        context={'employeeid':eid,'Totalsalary':total_salary}
+        return render_template('showsalary.html',data=context)
+    else:
+        return render_template('empid.html')
 
 
 
